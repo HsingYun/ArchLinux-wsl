@@ -1,5 +1,9 @@
 # ArchLinux Kernel for Microsoft WSL
 
+## Require
+
+`# pacman -S asp pacman-contrib`
+
 ## Build Kernel
 ```shell
 $ updpkgsums
@@ -8,8 +12,8 @@ $ makepkg -s -f
 
 ## Config
 ```
-1. add NBD Filesystem support
-2. add Systemd Hash API support
+1. support network block device (nbd) 
+2. support systemd Hash API
 ```
 
 ## Mount microsoft VHDX
@@ -26,6 +30,8 @@ PS C:\> Optimize-VHD -Path c:\test\dynamic.vhdx -Mode Full
 ## Use Systemd
 ```
 see genie-systemd for more details
+https://github.com/arkane-systems/genie
+https://github.com/sorah/subsystemctl
 ```
 
 ## Mount Boot from NTFS (drvfs with fstab)
