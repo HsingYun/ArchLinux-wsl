@@ -3,7 +3,7 @@ echo "begin update kernel src"
 cd linux/archlinux-linux
 git fetch
 cd ../src/archlinux-linux
-git checkout master && git add . && git reset --hard && git pull
+git add . && git reset --hard HEAD && git checkout master && git pull
 cd ../../..
 mv linux linux_src
 echo "begin update and export the linux pkg"
