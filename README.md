@@ -12,8 +12,9 @@ $ makepkg -s -f
 
 ## Config
 ```
-1. support network block device (nbd) 
-2. support systemd Hash API
+1. support network block device (nbd) `CONFIG_BLK_DEV_NBD`
+2. support systemd Hash API `CONFIG_CRYPTO_USER_API_HASH`
+3. support systemd-oomd `CONFIG_PSI`
 ```
 
 ## Mount microsoft VHDX
