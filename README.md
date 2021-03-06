@@ -23,6 +23,7 @@ $ makepkg -s -f
 $ sudo qemu-nbd -c /dev/nbd0 /mnt/d/test/ext4-extra.vhdx
 $ sudo mount -t ext4 -o rw /dev/nbd0 /mnt/media
 ```
+Windows Insiders preview build 20211 support `wsl.exe --mount` for mounting physical or virtual disks, see [Access Linux filesystems in Windows and WSL 2](https://devblogs.microsoft.com/commandline/access-linux-filesystems-in-windows-and-wsl-2/)
 
 ## Compress VHDX
 Optimize-VHD works by trimming empty blocks, but "empty" doesn’t always mean what you might think because ext4fs is not NTFS.
