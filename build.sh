@@ -1,5 +1,10 @@
 #! /bin/sh
-
+echo "begin update kernel src"
+cd linux/archlinux-linux
+git fetch
+cd ../src/archlinux-linux
+git add . && git reset --hard && git pull
+cd ../../..
 echo "begin update and export the linux pkg"
 asp update linux
 asp export linux
