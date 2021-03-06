@@ -20,12 +20,24 @@ $ makepkg -s -f
 
 ## Mount microsoft VHDX
 ```shell
-$ sudo qemu-nbd -c /dev/nbd0 /mnt/d/Develop/ArchLinux/ext4-extra.vhdx
+$ sudo qemu-nbd -c /dev/nbd0 /mnt/d/test/ext4-extra.vhdx
 $ sudo mount -t ext4 -o rw /dev/nbd0 /mnt/media
 ```
 
 ## Compress VHDX
+Optimize-VHD works by trimming empty blocks, but "empty" doesn’t always mean what you might think because ext4fs is not NTFS.
+So the first thing we need to do is to clean up the file system on the linux file system environment.
+
+#### On WSL2
 ```shell
+# create block device with vhdk, do not mount
+sudo qemu-nbd --aio=io_uring -c /dev/nbd0 /mnt/d/test/ext4-extra.vhdx
+# cleanup block
+sudo zerofree /dev/nbd0
+```
+#### On Windows
+```ps
+# compress VHDK
 PS C:\> Optimize-VHD -Path c:\test\dynamic.vhdx -Mode Full
 ```
 
