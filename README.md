@@ -45,7 +45,7 @@ D:\Develop\ArchLinux\kernel /boot drvfs rw,noatime
 ```conf
 # .wslconfig
 [wsl2]
-kernel=D:\\Develop\\ArchLinux\\kernel\\vmlinuz-linux-wsl
+kernel=D:\\Develop\\ArchLinux\\kernel\\vmlinuz-linux-wsl2
 ```
 
 ## screenfetch
