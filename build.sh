@@ -15,7 +15,7 @@ mv linux_src linux
 echo "begin modify the PKGBUILD and the config"
 sed -i 's/pkgbase=linux$/pkgbase=linux-wsl2/' linux/PKGBUILD
 sed -i 's/make all$/make all -j24/' linux/PKGBUILD
-sed -i 's/make htmldocs$/make htmldocs -j24/' linux/PKGBUILD
+sed -i 's/make htmldocs$/echo skip build htmldocs/' linux/PKGBUILD
 cp wsl/config linux/config
 echo "generate checksum"
 cd linux
