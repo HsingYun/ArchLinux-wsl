@@ -16,7 +16,15 @@ echo "begin modify the PKGBUILD and the config"
 sed -i 's/pkgbase=linux$/pkgbase=linux-wsl2/' linux/PKGBUILD
 sed -i 's/make all$/make all -j24/' linux/PKGBUILD
 sed -i 's/make htmldocs$/echo skip build htmldocs/' linux/PKGBUILD
-cp wsl/config linux/config
+echo "begin modify kernel config"
+rm linux/config
+cp wsl/config-wsl linux/config
+sed -i 's/.* CONFIG_BLK_DEV_NBD .*$/CONFIG_BLK_DEV_NBD=y/' linux/config
+sed -i 's/.* CONFIG_CRYPTO_USER_API_HASH .*$/CONFIG_CRYPTO_USER_API_HASH=y/' linux/config
+sed -i 's/.* CONFIG_PSI .*$/CONFIG_PSI=y/' linux/config
+sed -i 's/.* CONFIG_IO_URING .*$/CONFIG_IO_URING=y/' linux/config
+sed -i 's/.* CONFIG_LOCALVERSION .*$/CONFIG_LOCALVERSION="-microsoft"/' linux/config
+sed -i 's/.*CONFIG_LOCALVERSION=.*$/CONFIG_LOCALVERSION="-microsoft"/' linux/config
 echo "generate checksum"
 cd linux
 updpkgsums
