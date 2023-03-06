@@ -48,6 +48,7 @@ see genie-systemd for more details
 https://github.com/arkane-systems/genie
 https://github.com/sorah/subsystemctl
 ```
+see: [Systemd support is now available in WSL!](https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl)
 
 ## Mount Boot from NTFS (drvfs with fstab)
 ```fstab
